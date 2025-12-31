@@ -10,6 +10,8 @@ const TaskCard = (props) => {
              <h1>{data.todo}</h1>
             <p>{data.completed?"True":"False"}</p>
             {/* <p>{data.userId}</p> */}
+            {/* whats up */}
+            
         </div>
       </div>
     </div>
