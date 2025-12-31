@@ -10,7 +10,7 @@ const Todos = () => {
   }, []);
   return (
     <div>
-      <h1>Todos</h1>
+      <h1 className="text-4xl flex justify-center items-center m-4 px-8">Todos</h1>
        {loading ? <p>Loading...</p> : <TaskListing />}
     </div>
   );

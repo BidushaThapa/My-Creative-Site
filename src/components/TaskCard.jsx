@@ -1,21 +1,32 @@
+import { TiTick } from "react-icons/ti";
+import { RxCross1 } from "react-icons/rx";
 
-const TaskCard = (props) => {
-      const {data} = props;
-
+const TaskCard = ({ data ,className = "" }) => {
+  const hoverStyle=data.completed? "hover:bg-green-400":"hover:bg-red-400"
   return (
-    <div>
-      <div className="grid grid-cols-3 ">
-          <div className=' flex flex-col justify-center text-center  text-white border-2 border-amber-700  gap-2 m-2 '>
-            <p>{data.id}</p>
-             <h1>{data.todo}</h1>
-            <p>{data.completed?"True":"False"}</p>
-            {/* <p>{data.userId}</p> */}
-            {/* whats up */}
-            
-        </div>
-      </div>
-    </div>
-  )
-}
+  <div className={` relative text-white border-2 rounded-2xl border-amber-700 gap-2 m-2 p-2 text-center  ${hoverStyle} ${className}
+  `}>
+    {data.completed &&
 
-export default TaskCard
+    <div className="cursor-pointer  hover:text-green-500   hover:bg-white absolute right-1 top-1  border-2 w-5 h-5 rounded-full flex items-center justify-start  ">
+     < TiTick/>
+    </div>
+}
+   {!data.completed &&
+
+    <div className="cursor-pointer hover:text-red-500   hover:bg-white absolute right-1 top-1 border-2 w-5 h-5 p-[0.1rem] rounded-full flex items-center justify-start  ">
+<RxCross1  />
+
+    </div>
+}
+    <div>
+      <p>ID: {data.id}</p>
+    <h1>Todo: {data.todo}</h1>
+    <p>Status: {data.completed ? "True" : "False"}</p>
+    <p>UserId: {data.userId}</p>
+    </div>
+  </div>
+  );
+};
+
+export default TaskCard;
